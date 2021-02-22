@@ -28,8 +28,6 @@ class Todolist extends Component {
       });
   };
   deleteTask = (event) => {
-    // console.log(event.target);
-    // console.log(event.target.parentNode.querySelector("p").id);
     let id = event.target.parentNode.querySelector("p").id;
     fetch(taskUrl + id, {
       method: "DELETE",
