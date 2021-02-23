@@ -4,3 +4,7 @@
 
 3) Dependencies: Dependencies can be installed by giving command "npm install (package name)".
 
+4) Folder Description: It contains following folders in FRONTEND.
+A) SRC within src folder there are two subfolder Named as "apicalls" and "components".
+B) apicalls folder contains a file named taskEndPoint which has link of hosted database for api calls.
+C) Components folder conatins two files taskList and todolist these files are the markup file for the todolist task.
