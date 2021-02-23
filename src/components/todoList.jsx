@@ -53,6 +53,28 @@ class Todolist extends Component {
         console.log(err);
       });
   };
+  updateTask = (event)=>{
+    let id = event.target.parentNode.querySelector("p").id;
+    fetch(taskUrl + id,{
+      method: "UPDATE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ taskName: event.target.task.value }),
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      let taskList = [...this.state.taskList];
+      taskList.push(data.data);
+      this.setState({ taskList: taskList });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  };
+
   componentDidMount = (event) => {
     fetch(taskUrl)
       .then((response) => {
