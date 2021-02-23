@@ -56,7 +56,7 @@ class Todolist extends Component {
   updateTask = (event)=>{
     let id = event.target.parentNode.querySelector("p").id;
     fetch(taskUrl + id,{
-      method: "UPDATE",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
