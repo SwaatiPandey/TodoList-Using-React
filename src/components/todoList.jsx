@@ -1,6 +1,8 @@
 import { Component } from "react";
  import Tasklist from "./taskList";
 import taskUrl from "../apicalls/taskEndpoints"
+import "../styles/todoList.css";
+
 
 class Todolist extends Component {
   state = {
@@ -73,18 +75,6 @@ class Todolist extends Component {
     });
   };
 
-  componentDidMount = (event) => {
-    fetch(taskUrl)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        this.setState({ taskList: [...data.data] });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
   componentDidUpdate = (event) => {
     fetch(taskUrl)
       .then((response) => {
@@ -99,17 +89,18 @@ class Todolist extends Component {
   };
   render() {
     return (
-      <div>
-        <form onSubmit={this.submitForm}>
-          <label htmlFor="task">Enter Task</label>
-          <input type="text" name="task" />
-          <input type="submit" value="Submit Task" />
+      <div className="todo-app">
+        <h1>Todo App</h1>
+        <form className="todo-form" onSubmit={this.submitForm}>
+          {/* <label htmlFor="task">Enter Task</label> */}
+          <input className="todo-input" type="text" name="task" placeholder="Add a Todo"/>
+          <input className="todo-button" type="submit" value="Add task" />
         </form>
         <p>Task list</p>
         {this.state.taskList.map((task) => {
           return (
             <Tasklist
-              key={task.taskId}
+             className="todo-row" key={task.taskId}
               task={task}
               deleteTask={this.deleteTask}
               updateTask={this.updateTask}
@@ -117,6 +108,7 @@ class Todolist extends Component {
           );
         })}
       </div>
+  
     );
   }
 }
