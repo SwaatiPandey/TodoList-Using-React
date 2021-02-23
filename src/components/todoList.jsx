@@ -44,13 +44,10 @@ class Todolist extends Component {
         return response.json();
       })
       .then((data) => {
-        // console.log(data);
         let tasksList = [...this.state.taskList];
-        // console.log(tasksList);
         let result = tasksList.findIndex((task) => {
           return task.taskId === data.taskId;
         });
-        // console.log(result);
         tasksList.splice(result , 1);
         this.setState({ taskList: tasksList });
       })
@@ -65,16 +62,11 @@ class Todolist extends Component {
       headers: {
         "Content-Type": "application/json",
       },
-      // body: JSON.stringify({ taskName: event.target.task.value }),
     })
     .then((response) => {
       return response.json();
     })
     .then((data) => {
-      // console.log(data);
-      // let taskList = [...this.state.taskList];
-      // taskList.push(data.data);
-      // this.setState({ taskList: taskList });
     })
     .catch((err) => {
       console.log(err);
