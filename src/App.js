@@ -1,10 +1,9 @@
-import Todolist from "./components/todoList";
+import Main from "./route/Main";
 function App() {
   return (
     <div className="App">
-      <Todolist/>
+    <Main/>
     </div>
   );
 }
-
 export default App;
