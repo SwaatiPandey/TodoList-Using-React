@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import loginUrl from "../apicalls/apicall";
+import Todolist from "../components/todoList";
 // import Logged from "../pages/logged";
 
 
@@ -33,8 +34,8 @@ class Signup extends Component {
       console.log(data);
       if (data.data) {
         console.log("Signup Successful");
-        alert("you have successfully signed up. Press ok to go to home page");
-        this.props.history.push("/");
+        alert("you have successfully signed up. login to see todo app");
+        this.props.history.push("/login");
       }
         })
       .catch((err) => {
@@ -48,7 +49,7 @@ class Signup extends Component {
       <div>
         <Navigation />
         <div className="signupbox">
-          <h1>Sign Up Page</h1>
+          <h2>Sign Up Page</h2>
           <form className="form-container" onSubmit={this.onSubmit}>
             <p>First Name</p>
             <input
