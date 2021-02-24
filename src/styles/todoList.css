@@ -56,4 +56,6 @@
     font-size: 1.5rem;
     color: white;
   }
-  
+  .Completed{
+    text-decoration: line-through;
+  }

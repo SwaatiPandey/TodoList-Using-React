@@ -11,3 +11,8 @@ C) apicalls folder contains a file named taskEndPoint and Apicall which has link
 D) Components folder conatins two files taskList,todolist,header and footer.These files are the markup file for the todolist task.
 E) Route folder contains the routing part through which we get redirected to different pages.
 F) Styles folder contains the all the styling pages.
+
+5.Hosted link of the projects
+  Hosted link of the todo project: https://todo-list-using-react.vercel.app/
+  Hosted link of the todd backend: https://todolist-backend-task.herokuapp.com/todoList/tasks/
+  Hosted link of the login backend: https://login-backend-react.herokuapp.com/
