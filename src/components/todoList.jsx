@@ -64,6 +64,25 @@ class Todolist extends Component {
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({ taskName: event.target.parentNode.parentNode.querySelector("input").value }),
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  };
+  updateStatus = (event)=>{
+    let id = event.target.parentNode.querySelector("p").id;
+    fetch(taskUrl + id,{
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      // body: JSON.stringify({ taskName: event.target.parentNode.parentNode.querySelector("input").value }),
     })
     .then((response) => {
       return response.json();
@@ -81,7 +100,7 @@ class Todolist extends Component {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         this.setState({ taskList: [...data.data] });
       })
       .catch((err) => {
@@ -95,7 +114,7 @@ class Todolist extends Component {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         this.setState({ taskList: [...data.data] });
       })
       .catch((err) => {
@@ -113,13 +132,13 @@ class Todolist extends Component {
         </form>
         <p>Task list</p>
         {this.state.taskList.map((task) => {
-          console.log(task);
           return (
             <Tasklist
              className="todo-row" key={task.taskId}
               task={task}
               deleteTask={this.deleteTask}
               updateTask={this.updateTask}
+              updateStatus={this.updateStatus}
             />
           );
         })}
