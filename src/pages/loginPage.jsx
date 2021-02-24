@@ -25,7 +25,7 @@ class Login extends Component {
       }),
     })
       .then((response) => {
-        console.log(response.emailId);
+        // console.log(response.emailId);
         return response.json();
       })
       .then((data) => {

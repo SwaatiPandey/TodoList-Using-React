@@ -2,7 +2,7 @@
 .todo-app {
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    /* justify-content: start; */
     width: 520px;
     min-height: 600px;
     background: #161a2b;
@@ -56,6 +56,6 @@
     font-size: 1.5rem;
     color: white;
   }
-  .Completed{
+  .completed{
     text-decoration: line-through;
   }

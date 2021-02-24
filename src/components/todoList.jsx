@@ -75,12 +75,27 @@ class Todolist extends Component {
     });
   };
 
+  componentDidMount = (event) => {
+    fetch(taskUrl)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        this.setState({ taskList: [...data.data] });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   componentDidUpdate = (event) => {
     fetch(taskUrl)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         this.setState({ taskList: [...data.data] });
       })
       .catch((err) => {
@@ -98,6 +113,7 @@ class Todolist extends Component {
         </form>
         <p>Task list</p>
         {this.state.taskList.map((task) => {
+          console.log(task);
           return (
             <Tasklist
              className="todo-row" key={task.taskId}
