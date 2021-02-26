@@ -7,8 +7,6 @@ import loginUrl from "../apicalls/apicall";
 import Todolist from "../components/todoList";
 // import Logged from "../pages/logged";
 
-
-
 class Signup extends Component {
   onSubmit = (event) => {
     event.preventDefault();
@@ -27,17 +25,16 @@ class Signup extends Component {
       }),
     })
       .then((response) => {
-       return response.json();
-       
+        return response.json();
       })
       .then((data) => {
-      console.log(data);
-      if (data.data) {
-        console.log("Signup Successful");
-        alert("you have successfully signed up. login to see todo app");
-        this.props.history.push("/login");
-      }
-        })
+        console.log(data);
+        if (data.data) {
+          console.log("Signup Successful");
+          alert("you have successfully signed up. login to see todo app");
+          this.props.history.push("/login");
+        }
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -73,11 +70,15 @@ class Signup extends Component {
               placeholder="Confirm password"
               name="confirmPassword"
             />
-            <button type="submit" className="buttonheight">Signup</button>
+            <button type="submit" className="buttonheight">
+              Signup
+            </button>
             <Link to="/login">
               <input type="button" name="login" value="login" />
             </Link>
-            <button type="reset" name="cancel" value="cancel">Clear</button>
+            <button type="reset" name="cancel" value="cancel">
+              Clear
+            </button>
           </form>
         </div>
         <Footer />

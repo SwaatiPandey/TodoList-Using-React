@@ -15,7 +15,7 @@ class Todolist extends Component {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ taskName: event.target.task.value }),
+      body: JSON.stringify({ taskName: event.target.value }),
     })
       .then((response) => {
         return response.json();
@@ -82,7 +82,7 @@ class Todolist extends Component {
       headers: {
         "Content-Type": "application/json",
       },
-      // body: JSON.stringify({ taskName: event.target.parentNode.parentNode.querySelector("input").value }),
+    
     })
     .then((response) => {
       return response.json();
@@ -127,8 +127,8 @@ class Todolist extends Component {
         <h1>Todo App</h1>
         <form className="todo-form" onSubmit={this.submitForm}>
           {/* <label htmlFor="task">Enter Task</label> */}
-          <input className="todo-input" type="text" name="task" placeholder="Add a Todo"/>
-          <input className="todo-button" type="submit" value="Add task" />
+          <input title="txtfield" className="todo-input" type="text" name="task" placeholder="Add a Todo"/>
+          <input title="addtask" className="todo-button" type="submit" value="Add task" />
         </form>
         <p>Task list</p>
         {this.state.taskList.map((task) => {

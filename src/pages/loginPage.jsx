@@ -31,11 +31,9 @@ class Login extends Component {
       .then((data) => {
         if (data.data) {
           this.setState({ status: "successful" });
-          }
-          else{
-            alert("Invalid Email or Password");
-          }
-        
+        } else {
+          alert("Invalid Email or Password");
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -46,8 +44,8 @@ class Login extends Component {
     return (
       <div>
         {this.state.status === "successful" ? (
-          <Todolist/>
-          ) : (
+          <Todolist />
+        ) : (
           <div>
             <Navigation />
             <div className="loginbox">
@@ -55,8 +53,8 @@ class Login extends Component {
               <form className="form-container" onSubmit={this.onLogin}>
                 <p>Email</p>
                 <input
-                  type="text"
-                 placeholder="Enter your email"
+                  type="email"
+                  placeholder="Enter your email"
                   name="email"
                 />
                 <p>Password</p>
@@ -65,11 +63,18 @@ class Login extends Component {
                   placeholder="Enter your password"
                   name="password"
                 />
-                <button type="submit">Login</button>
+                <button title="log" type="submit">
+                  Login
+                </button>
                 <Link to="/signup">
-                  <input type="button" name="signup" value="signup" />
+                  <input
+                    type="sign"
+                    type="button"
+                    name="signup"
+                    value="signup"
+                  />
                 </Link>
-                <button type="reset" name="cancel" value="cancel">
+                <button type="cancel" type="reset" name="cancel" value="cancel">
                   clear
                 </button>
               </form>
@@ -77,7 +82,6 @@ class Login extends Component {
             <Footer />
           </div>
         )}
-
       </div>
     );
   }
